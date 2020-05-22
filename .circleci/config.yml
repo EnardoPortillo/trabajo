@@ -8,8 +8,8 @@ orbs:
 jobs:
   deploy-application:
    executor: aws-eks/python3
-    parameters:
-      cluster-name:
+    parameters: 
+      cluster-name: 
         description: |
           Name of the EKS cluster
         type: string
