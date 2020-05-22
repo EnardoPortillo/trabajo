@@ -116,7 +116,7 @@ jobs:
 workflows:
   deployment:
     jobs:
-     - aws-ecr/build_and_push_image:
+      - aws-ecr/build_and_push_image:
           name: build-and-push-image
           account-url: AWS_ECR_URL
           region: AWS_DEFAULT_REGION
@@ -150,3 +150,9 @@ workflows:
           aws-region: $AWS_DEFAULT_REGION
           # requires:
           #   - test-application
+      - aws-eks/delete-cluster:
+          cluster-name: eks-orb-demo-app-deployment
+          aws-region: $AWS_DEFAULT_REGION
+          wait: true
+          requires:
+          - undeploy-application
