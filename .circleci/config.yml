@@ -150,9 +150,4 @@ workflows:
           aws-region: $AWS_DEFAULT_REGION
           # requires:
           #   - test-application
-      - aws-eks/delete-cluster:
-          cluster-name: eks-orb-demo-app-deployment
-          aws-region: $AWS_DEFAULT_REGION
-          wait: true
-          requires:
-          - undeploy-application
+    
