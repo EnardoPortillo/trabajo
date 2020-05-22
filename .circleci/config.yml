@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  aws-eks: circleci/aws-eks@0.1.0
+  aws-eks: circleci/aws-eks@0.2.0
   aws-ecr: circleci/aws-ecr@3.1.0
   kubernetes: circleci/kubernetes@0.3.0
 
@@ -113,7 +113,6 @@ jobs:
           name: Check on pod status
           command: |
             kubectl get pods
-  
 workflows:
   deployment:
     jobs:
@@ -144,5 +143,5 @@ workflows:
       - undeploy-application:
           cluster-name: eks-orb-demo-app-deployment
           aws-region: $AWS_DEFAULT_REGION
-          # requires:
-          #   - test-application
+          requires:
+            - test-application
