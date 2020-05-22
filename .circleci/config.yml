@@ -132,7 +132,7 @@ workflows:
           docker-image-name: "${AWS_ECR_URL}/eks_orb_demo_app:${CIRCLE_SHA1}"
           version-info: "${CIRCLE_SHA1}"
           requires:
-            - aws-eks/create-cluster
+            - aws-ecr/build_and_push_image
       - test-application:
           name: test-application
           cluster-name: eks-orb-demo-app-deployment
@@ -140,9 +140,4 @@ workflows:
           expected-version-info: "${CIRCLE_SHA1}"
           requires:
             - deploy-application
-      - undeploy-application:
-          cluster-name: eks-orb-demo-app-deployment
-          aws-region: $AWS_DEFAULT_REGION
-          # requires:
-          #   - test-application
-    
+      
