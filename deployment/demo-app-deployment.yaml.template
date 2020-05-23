@@ -13,6 +13,11 @@ spec:
     metadata:
       labels:
         app: demo
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+        maxSurge: 0
+        maxUnavailable: 1
     spec:
       containers:
       - name: app
