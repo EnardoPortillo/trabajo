@@ -95,7 +95,7 @@ workflows:
           name: build-and-push-image
           account-url: AWS_ECR_URL
           region: AWS_DEFAULT_REGION
-          repo: trabajo
+          repo: parcial
           dockerfile: ~/project/demo_app/Dockerfile
           path: ~/project/demo_app
           tag: ${CIRCLE_SHA1}
