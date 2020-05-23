@@ -3,21 +3,16 @@ kind: Deployment
 metadata:
   name: demoapp
   labels:
-    app: demo
+    app: demos
 spec:
   selector:
     matchLabels:
-      app: demo
+      app: demos
   replicas: 1
   template:
     metadata:
       labels:
-        app: demo
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-        maxSurge: 0
-        maxUnavailable: 1
+        app: demos
     spec:
       containers:
       - name: app
