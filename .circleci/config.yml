@@ -95,14 +95,14 @@ workflows:
           name: build-and-push-image
           account-url: AWS_ECR_URL
           region: AWS_DEFAULT_REGION
-          repo: eks_orb_demo_app
+          repo: trabajo
           dockerfile: ~/project/demo_app/Dockerfile
           path: ~/project/demo_app
           tag: ${CIRCLE_SHA1}
           # Uncomment if the repository does not yet exist
           # create-repo: true
       - deploy-application:
-          cluster-name: eks-orb-demo-app-deployment
+          cluster-name: ClusterProj
           aws-region: $AWS_DEFAULT_REGION
           docker-image-name: "${AWS_ECR_URL}/eks_orb_demo_app:${CIRCLE_SHA1}"
           version-info: "${CIRCLE_SHA1}"
@@ -110,7 +110,7 @@ workflows:
             - build-and-push-image
       - test-application:
           name: test-application
-          cluster-name: eks-orb-demo-app-deployment
+          cluster-name: ClusterProj
           aws-region: $AWS_DEFAULT_REGION
           expected-version-info: "${CIRCLE_SHA1}"
           requires:
