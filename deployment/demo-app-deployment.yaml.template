@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: demoapp
   labels:
-    app: demos
+    app: demo
 spec:
   selector:
     matchLabels:
-      app: demos
+      app: demo
   replicas: 1
   template:
     metadata:
       labels:
-        app: demos
+        app: demo
     spec:
       containers:
       - name: app
